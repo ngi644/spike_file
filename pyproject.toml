@@ -1,67 +1,18 @@
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+[tool.poetry]
+name = "Python code to llsp3 file conveter"
+version = "0.1.0"
+description = ""
+authors = ["Takashi Nagai <ngi644@gmail.com>"]
 
-[project]
-name = "llsp3"
-dynamic = ["version"]
-description = ''
-readme = "README.md"
-requires-python = ">=3.8"
-license = "MIT"
-keywords = []
-authors = [
-  { name = "U.N. Owen", email = "void@some.where" },
-]
-classifiers = [
-  "Development Status :: 4 - Beta",
-  "Programming Language :: Python",
-  "Programming Language :: Python :: 3.8",
-  "Programming Language :: Python :: 3.9",
-  "Programming Language :: Python :: 3.10",
-  "Programming Language :: Python :: 3.11",
-  "Programming Language :: Python :: 3.12",
-  "Programming Language :: Python :: Implementation :: CPython",
-  "Programming Language :: Python :: Implementation :: PyPy",
-]
-dependencies = []
+[tool.poetry.dependencies]
+python
+streamlit
 
-[project.urls]
-Documentation = "https://github.com/U.N. Owen/llsp3#readme"
-Issues = "https://github.com/U.N. Owen/llsp3/issues"
-Source = "https://github.com/U.N. Owen/llsp3"
+[tool.poetry.dev-dependencies]
+black = "*"  # Pretty formatting of Python code
+pynvim = "*" # Allows nvim users to use black formatting
 
-[tool.hatch.version]
-path = "src/llsp3/__about__.py"
-
-[tool.hatch.envs.dev]
-installer = "uv"
-extra-dependencies = [
-  "streamlit"
-]
-
-[tool.hatch.envs.types]
-extra-dependencies = [
-  "mypy>=1.0.0",
-]
-[tool.hatch.envs.types.scripts]
-check = "mypy --install-types --non-interactive {args:src/llsp3 tests}"
-
-[tool.coverage.run]
-source_pkgs = ["llsp3", "tests"]
-branch = true
-parallel = true
-omit = [
-  "src/llsp3/__about__.py",
-]
-
-[tool.coverage.paths]
-llsp3 = ["src/llsp3", "*/llsp3/src/llsp3"]
-tests = ["tests", "*/llsp3/tests"]
-
-[tool.coverage.report]
-exclude_lines = [
-  "no cov",
-  "if __name__ == .__main__.:",
-  "if TYPE_CHECKING:",
-]
+[[tool.poetry.source]]
+name = 'default'
+url = 'https://pypi.python.org/simple'
+secondary = false
