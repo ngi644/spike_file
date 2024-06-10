@@ -5,8 +5,8 @@ description = ""
 authors = ["Takashi Nagai <ngi644@gmail.com>"]
 
 [tool.poetry.dependencies]
-python
-streamlit
+python = "^3.11"
+streamlit = "^1.34"
 
 [tool.poetry.dev-dependencies]
 black = "*"  # Pretty formatting of Python code
